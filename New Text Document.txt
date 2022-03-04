@@ -1,0 +1,2 @@
+Exposure to Agile/SCRUM experience within SDLC development practices
+Exposure to DevOps continuous integration/delivery tools including GitHub, Jenkins, JIRA, Confluence, and Urban Code Deploy
