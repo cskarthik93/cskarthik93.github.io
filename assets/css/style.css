@@ -418,7 +418,48 @@ section {
 .about .content p:last-child {
   margin-bottom: 0;
 }
+.about .info {
+  width: 100%;
+  background: #fff;
+}
 
+.about .info i {
+  font-size: 20px;
+  color: #0563bb;
+  float: left;
+  width: 44px;
+  height: 44px;
+  background: #eef7ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+}
+
+.about .info h4 {
+  padding: 0 0 0 60px;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #45505b;
+}
+
+.about .info p {
+  padding: 0 0 0 60px;
+  margin-bottom: 0;
+  font-size: 14px;
+  color: #728394;
+}
+
+.about .info .organization, .about .info .address, .about .info .degree, .about .info .awards {
+  margin-top: 40px;
+}
+
+.about .info .email:hover i, .about .info .address:hover i, .about .info .phone:hover i {
+  background: #0563bb;
+  color: #fff;
+}
 /*--------------------------------------------------------------
 # Facts
 --------------------------------------------------------------*/
@@ -601,7 +642,7 @@ section {
   position: relative;
   overflow: hidden;
   z-index: 1;
-  background: rgba(69, 80, 91, 0.8);
+  background: white;
 }
 
 .portfolio .portfolio-wrap::before {
@@ -783,11 +824,11 @@ section {
 # Services
 --------------------------------------------------------------*/
 .services .icon-box {
-  text-align: center;
-  padding: 70px 20px 80px 20px;
+  padding: 30px 20px 20px 30px;
   transition: all ease-in-out 0.3s;
   background: #fff;
   box-shadow: 0px 5px 90px 0px rgba(110, 123, 131, 0.05);
+  width: 100%;
 }
 
 .services .icon-box .icon {
