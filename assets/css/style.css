@@ -456,7 +456,7 @@ section {
   margin-top: 40px;
 }
 
-.about .info .email:hover i, .about .info .address:hover i, .about .info .phone:hover i {
+.about .info .email:hover i, .about .info .address:hover i, .about .info .phone:hover i, .about .info .awards:hover i, .about .info .degree:hover i, .about .info .organization:hover i {
   background: #0563bb;
   color: #fff;
 }
