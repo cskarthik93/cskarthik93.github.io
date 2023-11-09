@@ -1,2 +1,2 @@
 # cskarthik93.github.io
-Personal Portfolio
+Personal Portfolio & Resume
