@@ -13,7 +13,7 @@ form.addEventListener('submit', (e) => {
 
   const formData = new FormData(form);
 
-  fetch(netlify, {
+  fetch(/.netlify/functions/submit, {
     method: 'POST',
     body: formData
   })
