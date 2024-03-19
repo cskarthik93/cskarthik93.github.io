@@ -13,13 +13,14 @@ form.addEventListener('submit', (e) => {
 
   const formData = new FormData(form);
 
-  fetch('forms/contact.php', {
+  fetch(netlify, {
     method: 'POST',
     body: formData
   })
   .then(response => response.text())
   .then(data => {
     loadingDiv.style.display = 'none';
+    console.log(data);
     if (data === 'success') {
       sentMessage.style.display = 'block';
     } else {
