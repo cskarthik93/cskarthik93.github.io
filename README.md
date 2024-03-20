@@ -1,2 +1,1 @@
-# cskarthik93.github.io
-Personal Portfolio Website
+# cskarthik93.github.io - Portfolio Website
