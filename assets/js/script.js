@@ -1,12 +1,10 @@
+function sendEmail(event) {
+ event.preventDefault();
+
 const form = document.querySelector('.php-email-form');
 const loadingDiv = document.querySelector('.loading');
 const errorMessage = document.querySelector('.error-message');
 const sentMessage = document.querySelector('.sent-message');
-
-form.addEventListener('submit', sendEmail);
-
-function sendEmail(event) {
- event.preventDefault();
 
  loadingDiv.style.display = 'block';
  errorMessage.style.display = 'none';
@@ -17,7 +15,12 @@ function sendEmail(event) {
  const subject = document.querySelector('input[name="subject"]').value;
  const message = document.querySelector('textarea[name="message"]').value;
 
- emailjs.sendForm('service_mw4jgdd', 'template_cl7aeoa', form.elements, 'zC3-rTdaAcvL9Jt8F')
+ emailjs.sendForm('service_mw4jgdd', 'template_cl7aeoa', form, 'zC3-rTdaAcvL9Jt8F', {
+  from_name: name,
+  from_email: email,
+  subject: subject,
+  message_html: message,
+})
    .then(() => {
      loadingDiv.style.display = 'none';
      sentMessage.style.display = 'block';
