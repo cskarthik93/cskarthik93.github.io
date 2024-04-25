@@ -1,11 +1,30 @@
-:root {
-  --rotation-90: rotate(90deg);
-  --rotation-180: rotate(180deg);
-  --rotation-270: rotate(270deg);
-  --mirror-horizontal: scaleX(-1);
-  --mirror-vertical: scaleY(-1);
-}
+.bx-rotate-90
+{
+    transform: rotate(90deg);
 
-.bx-rotate-90 {
-  transform: var(--rotation-90);
-  /*
+    -ms-filter: 'progid:DXImageTransform.Microsoft.BasicImage(rotation=1)';
+}
+.bx-rotate-180
+{
+    transform: rotate(180deg);
+
+    -ms-filter: 'progid:DXImageTransform.Microsoft.BasicImage(rotation=2)';
+}
+.bx-rotate-270
+{
+    transform: rotate(270deg);
+
+    -ms-filter: 'progid:DXImageTransform.Microsoft.BasicImage(rotation=3)';
+}
+.bx-flip-horizontal
+{
+    transform: scaleX(-1);
+
+    -ms-filter: 'progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)';
+}
+.bx-flip-vertical
+{
+    transform: scaleY(-1);
+
+    -ms-filter: 'progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)';
+}
