@@ -5,18 +5,22 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * Forked from Normalize.css, licensed MIT (https://github.com/necolas/normalize.css/blob/master/LICENSE.md)
  */
+
+/* Reset */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+/* Scroll behavior */
 @media (prefers-reduced-motion: no-preference) {
   :root {
     scroll-behavior: smooth;
   }
 }
 
+/* Body */
 body {
   margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -29,6 +33,7 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+/* HR */
 hr {
   margin: 1rem 0;
   color: inherit;
@@ -41,6 +46,7 @@ hr:not([size]) {
   height: 1px;
 }
 
+/* Headings */
 h6, h5, h4, h3, h2, h1 {
   margin-top: 0;
   margin-bottom: 0.5rem;
@@ -92,11 +98,13 @@ h6 {
   font-size: 1rem;
 }
 
+/* Paragraphs */
 p {
   margin-top: 0;
   margin-bottom: 1rem;
 }
 
+/* Abbreviations */
 abbr[title],
 abbr[data-bs-original-title] {
   -webkit-text-decoration: underline dotted;
@@ -106,12 +114,14 @@ abbr[data-bs-original-title] {
   text-decoration-skip-ink: none;
 }
 
+/* Address */
 address {
   margin-bottom: 1rem;
   font-style: normal;
   line-height: inherit;
 }
 
+/* Lists */
 ol,
 ul {
   padding-right: 2rem;
@@ -140,24 +150,29 @@ dd {
   margin-right: 0;
 }
 
+/* Blockquotes */
 blockquote {
   margin: 0 0 1rem;
 }
 
+/* Bold and strong */
 b,
 strong {
   font-weight: bolder;
 }
 
+/* Small text */
 small {
   font-size: 0.875em;
 }
 
+/* Marked text */
 mark {
   padding: 0.2em;
   background-color: #fcf8e3;
 }
 
+/* Sub and sup */
 sub,
 sup {
   position: relative;
@@ -174,6 +189,7 @@ sup {
   top: -0.5em;
 }
 
+/* Links */
 a {
   color: #0d6efd;
   text-decoration: underline;
@@ -187,6 +203,7 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
   text-decoration: none;
 }
 
+/* Pre, code, kbd, samp */
 pre,
 code,
 kbd,
@@ -232,15 +249,18 @@ kbd kbd {
   font-weight: 700;
 }
 
+/* Figure */
 figure {
   margin: 0 0 1rem;
 }
 
+/* Images and SVGs */
 img,
 svg {
   vertical-align: middle;
 }
 
+/* Tables */
 table {
   caption-side: bottom;
   border-collapse: collapse;
@@ -269,6 +289,7 @@ th {
   border-width: 0;
 }
 
+/* Forms */
 label {
   display: inline-block;
 }
@@ -358,6 +379,7 @@ legend + * {
   clear: right;
 }
 
+/* Webkit-specific styles */
 ::-webkit-datetime-edit-fields-wrapper,
 ::-webkit-datetime-edit-text,
 ::-webkit-datetime-edit-minute,
@@ -379,45 +401,3 @@ legend + * {
 
 [type="tel"],
 [type="url"],
-[type="email"],
-[type="number"] {
-  direction: ltr;
-}
-::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-::-webkit-color-swatch-wrapper {
-  padding: 0;
-}
-
-::file-selector-button {
-  font: inherit;
-}
-
-::-webkit-file-upload-button {
-  font: inherit;
-  -webkit-appearance: button;
-}
-
-output {
-  display: inline-block;
-}
-
-iframe {
-  border: 0;
-}
-
-summary {
-  display: list-item;
-  cursor: pointer;
-}
-
-progress {
-  vertical-align: baseline;
-}
-
-[hidden] {
-  display: none !important;
-}
-/*# sourceMappingURL=bootstrap-reboot.rtl.css.map */
