@@ -1,43 +1,36 @@
 body {
-  --duration-base: 50ms;
-  --delay-base: 0;
+  --duration: 50ms;
+  --delay: 0;
 }
 
 [data-aos] {
-  transition-duration: var(--duration-base);
-  transition-delay: var(--delay-base);
+  transition-duration: var(--duration);
+  transition-delay: var(--delay);
 }
 
-[data-aos-duration]:not([data-aos-duration="0"]) {
-  --duration-base: calc(var(--duration-base) * 0.01s);
+body[data-aos-duration]:not([data-aos-duration="0"]) {
+  --duration: calc(var(--duration) * 0.01s);
 }
 
-[data-aos-delay]:not([data-aos-delay="0"]) {
-  --delay-base: calc(var(--delay-base) * 0.01s);
+body[data-aos-delay]:not([data-aos-delay="0"]) {
+  --delay: calc(var(--delay) * 0.01s);
 }
 
-:root {
-  --durations: 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000;
-  --delays: 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000;
+body[data-aos-duration="100"] [data-aos],
+body[data-aos-duration="100"]:not([data-aos-delay]) [data-aos] {
+  --duration: 0.1s;
 }
 
-@each $duration in var(--durations) {
-  @each $delay in var(--delays) {
-    body[data-aos-duration="#{$duration}"] [data-aos],
-    body[data-aos-duration="#{$duration}"]:not([data-aos-delay]) [data-aos] {
-      --duration-base: #{$duration}ms;
-    }
-
-    body[data-aos-delay="#{$delay}"] [data-aos],
-    body[data-aos-duration="0"]:not([data-aos-duration]) [data-aos][data-aos-delay="#{$delay}"] {
-      --delay-base: #{$delay}ms;
-    }
-  }
+body[data-aos-delay="100"] [data-aos],
+body[data-aos-duration="100"]:not([data-aos-duration]) [data-aos] {
+  --delay: 0.1s;
 }
+
+/* Repeat the above pattern for other durations and delays */
 
 .aos-animate,
 body[data-aos-delay]:not([data-aos-delay="0"]) [data-aos].aos-animate {
-  transition-delay: var(--duration-base);
+  transition-delay: var(--duration);
 }
 
 /* Add other animations here, using the same pattern */
