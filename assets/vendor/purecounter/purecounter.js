@@ -2,13 +2,14 @@
 
 import { PureCounter } from './purecounter';
 
-const counters = document.querySelectorAll('.purecounter');
+const counters: NodeListOf<HTMLElement> = document.querySelectorAll('.purecounter');
 new PureCounter(counters);
 
 
 // purecounter.ts
 
 import { IntersectionObserver, IntersectionObserverEntry } from 'intersection-observer';
+import { requestAnimationFrame } from 'requestAnimationFrame';
 
 export class PureCounter {
   private counters: NodeListOf<HTMLElement>;
@@ -26,8 +27,8 @@ export class PureCounter {
         threshold: 0.5,
       });
 
-      for (let i = 0; i < this.counters.length; i++) {
-        observer.observe(this.counters[i]);
+      for (const counter of this.counters) {
+        observer.observe(counter);
       }
     } else {
       window.addEventListener('scroll', this.animateLegacy.bind(this));
@@ -36,9 +37,9 @@ export class PureCounter {
   }
 
   private animateLegacy(counters: NodeListOf<HTMLElement>): void {
-    for (let i = 0; i < counters.length; i++) {
-      if (this.parseConfig(counters[i]).legacy) {
-        this.elementIsInView(counters[i]) && this.animateElements([counters[i]]);
+    for (const counter of counters) {
+      if (this.isLegacy(counter)) {
+        this.elementIsInView(counter) && this.animateElements([counter]);
       }
     }
   }
@@ -78,9 +79,9 @@ export class PureCounter {
       legacy: true,
     };
 
-    for (const attr of attributes) {
-      const key = attr.name.replace('data-purecounter-', '');
-      config[key.toLowerCase()] = this.castDataType(attr.value);
+    for (const { name, value } of attributes) {
+      const key = name.replace('data-purecounter-', '');
+      config[key.toLowerCase()] = this.castDataType(value);
     }
 
     return config as Config;
@@ -118,12 +119,16 @@ export class PureCounter {
     );
   }
 
+  private isLegacy(element: HTMLElement): element is HTMLElement & { legacy: boolean } {
+    return (element as any).legacy !== undefined;
+  }
+
   private intersectionListenerSupported(): boolean {
     return 'IntersectionObserver' in window && 'IntersectionObserverEntry' in window && 'intersectionRatio' in window.IntersectionObserverEntry.prototype;
   }
 }
 
-interface Config {
+export interface Config {
   start: number;
   end: number;
   duration: number;
@@ -134,7 +139,7 @@ interface Config {
 }
 
 
-npm install intersection-observer
+npm install intersection-observer requestAnimationFrame
 
 
 tsc main.ts purecounter.ts
