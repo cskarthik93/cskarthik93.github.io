@@ -1,87 +1,167 @@
-@keyframes spin {
-  0% { transform: rotate(0); }
-  100% { transform: rotate(359deg); }
-}
 @-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0); }
-  100% { -webkit-transform: rotate(359deg); }
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+@-webkit-keyframes burst {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+  90% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    opacity: 0;
+  }
 }
 
 @keyframes burst {
-  0% { transform: scale(1); opacity: 1; }
-  90% { transform: scale(1.5); opacity: 0; }
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+  90% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    opacity: 0;
+  }
 }
-@-webkit-keyframes burst {
-  0% { -webkit-transform: scale(1); opacity: 1; }
-  90% { -webkit-transform: scale(1.5); opacity: 0; }
+
+@-webkit-keyframes flashing {
+  0% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 1;
+  }
 }
 
 @keyframes flashing {
-  0% { opacity: 1; }
-  45% { opacity: 0; }
-  90% { opacity: 1; }
+  0% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 1;
+  }
 }
-@-webkit-keyframes flashing {
-  0% { opacity: 1; }
-  45% { opacity: 0; }
-  90% { opacity: 1; }
+
+@-webkit-keyframes fade {
+  0% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+    opacity: 1;
+  }
+  75% {
+    -webkit-transform: translate(20px);
+            transform: translate(20px);
+    opacity: 0;
+  }
 }
 
 @keyframes fade {
-  0% { transform: translate(0); opacity: 1; }
-  75% { transform: translate(20px); opacity: 0; }
-}
-@-webkit-keyframes fade {
-  0% { -webkit-transform: translate(0); opacity: 1; }
-  75% { -webkit-transform: translate(20px); opacity: 0; }
+  0% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+    opacity: 1;
+  }
+  75% {
+    -webkit-transform: translate(20px);
+            transform: translate(20px);
+    opacity: 0;
+  }
 }
 
-.bx-spin,
-.bx-spin-hover:hover {
-  animation: spin 2s linear infinite;
+.bx-spin {
   -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
 }
 
-.bx-tada,
-.bx-tada-hover:hover {
-  animation: tada 1.5s ease infinite;
+.bx-spin-hover:hover {
+  -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+}
+
+.bx-tada {
   -webkit-animation: tada 1.5s ease infinite;
+          animation: tada 1.5s ease infinite;
 }
 
-.bx-flashing,
-.bx-flashing-hover:hover {
-  animation: flashing 1.5s infinite linear;
+.bx-tada-hover:hover {
+  -webkit-animation: tada 1.5s ease infinite;
+          animation: tada 1.5s ease infinite;
+}
+
+.bx-flashing {
   -webkit-animation: flashing 1.5s infinite linear;
+          animation: flashing 1.5s infinite linear;
 }
 
-.bx-burst,
-.bx-burst-hover:hover {
-  animation: burst 1.5s infinite linear;
+.bx-flashing-hover:hover {
+  -webkit-animation: flashing 1.5s infinite linear;
+          animation: flashing 1.5s infinite linear;
+}
+
+.bx-burst {
   -webkit-animation: burst 1.5s infinite linear;
+          animation: burst 1.5s infinite linear;
 }
 
-.bx-fade,
-.bx-fade-hover:hover {
-  animation: fade 1.5s infinite linear;
+.bx-burst-hover:hover {
+  -webkit-animation: burst 1.5s infinite linear;
+          animation: burst 1.5s infinite linear;
+}
+
+.bx-fade {
   -webkit-animation: fade 1.5s infinite linear;
+          animation: fade 1.5s infinite linear;
+}
+
+.bx-fade-hover:hover {
+  -webkit-animation: fade 1.5s infinite linear;
+          animation: fade 1.5s infinite linear;
 }
 
 .bx-fade-up {
-  animation-direction: normal;
   -webkit-animation-direction: normal;
+          animation-direction: normal;
 }
 
 .bx-fade-down {
-  animation-direction: reverse;
   -webkit-animation-direction: reverse;
+          animation-direction: reverse;
 }
 
 .bx-fade-left {
-  animation-direction: alternate;
   -webkit-animation-direction: alternate;
+          animation-direction: alternate;
 }
 
 .bx-fade-right {
-  animation-direction: alternate-reverse;
   -webkit-animation-direction: alternate-reverse;
+          animation-direction: alternate-reverse;
 }
