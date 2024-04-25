@@ -4,25 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Example Page</title>
-    <style>
-        main#main-content > section.about-me {
-            margin-bottom: 30px;
-        }
-    </style>
 </head>
 <body>
     <header>
         <h1>Welcome to My Page</h1>
     </header>
-    <main id="main-content">
-        <section class="about-me">
+    <main>
+        <section>
             <h2>About Me</h2>
             <img src="path/to/your-image.jpg" alt="Your Image" width="300" height="200">
             <p>This is a paragraph describing you or your page.</p>
-            <a href="path/to/your-link.html" target="_blank">Check out my other page!</a>
+            <a href="path/to/your-link.html">Check out my other page!</a>
         </section>
     </main>
-    <footer id="footer">
+    <footer>
         <p>Copyright © 2023 Your Name</p>
     </footer>
 </body>
