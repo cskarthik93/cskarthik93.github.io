@@ -1,10 +1,26 @@
-/* Reset and defaults */
+/*!
+ * Bootstrap Reboot v5.0.0-beta3 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors
+ * Copyright 2011-2021 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * Forked from Normalize.css, licensed MIT (https://github.com/necolas/normalize.css/blob/master/LICENSE.md)
+ */
+
+/* Reset */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+/* Scroll behavior */
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Body */
 body {
   margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -13,9 +29,11 @@ body {
   line-height: 1.5;
   color: #212529;
   background-color: #fff;
-  scroll-behavior: smooth; /* Smooth scrolling if not reduced motion */
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+/* HR */
 hr {
   margin: 1rem 0;
   color: inherit;
@@ -24,8 +42,12 @@ hr {
   opacity: 0.25;
 }
 
+hr:not([size]) {
+  height: 1px;
+}
+
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
+h6, h5, h4, h3, h2, h1 {
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-weight: 500;
@@ -35,17 +57,37 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: calc(1.375rem + 1.5vw);
 }
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
 
 h2 {
   font-size: calc(1.325rem + 0.9vw);
+}
+@media (min-width: 1200px) {
+  h2 {
+    font-size: 2rem;
+  }
 }
 
 h3 {
   font-size: calc(1.3rem + 0.6vw);
 }
+@media (min-width: 1200px) {
+  h3 {
+    font-size: 1.75rem;
+  }
+}
 
 h4 {
   font-size: calc(1.275rem + 0.3vw);
+}
+@media (min-width: 1200px) {
+  h4 {
+    font-size: 1.5rem;
+  }
 }
 
 h5 {
@@ -56,23 +98,33 @@ h6 {
   font-size: 1rem;
 }
 
-/* Paragraphs and abbreviations */
+/* Paragraphs */
 p {
   margin-top: 0;
   margin-bottom: 1rem;
 }
 
+/* Abbreviations */
 abbr[title],
 abbr[data-bs-original-title] {
+  -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
   cursor: help;
+  -webkit-text-decoration-skip-ink: none;
+  text-decoration-skip-ink: none;
 }
 
-/* Address and lists */
+/* Address */
 address {
   margin-bottom: 1rem;
   font-style: normal;
   line-height: inherit;
+}
+
+/* Lists */
+ol,
+ul {
+  padding-right: 2rem;
 }
 
 ol,
@@ -82,29 +134,39 @@ dl {
   margin-bottom: 1rem;
 }
 
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+  margin-bottom: 0;
+}
+
 dt {
   font-weight: 700;
 }
 
 dd {
   margin-bottom: 0.5rem;
+  margin-right: 0;
 }
 
-/* Blockquotes and bold text */
+/* Blockquotes */
 blockquote {
   margin: 0 0 1rem;
 }
 
+/* Bold and strong */
 b,
 strong {
   font-weight: bolder;
 }
 
-/* Small text and marked text */
+/* Small text */
 small {
   font-size: 0.875em;
 }
 
+/* Marked text */
 mark {
   padding: 0.2em;
   background-color: #fcf8e3;
@@ -113,6 +175,7 @@ mark {
 /* Sub and sup */
 sub,
 sup {
+  position: relative;
   font-size: 0.75em;
   line-height: 0;
   vertical-align: baseline;
@@ -131,9 +194,13 @@ a {
   color: #0d6efd;
   text-decoration: underline;
 }
-
 a:hover {
   color: #0a58ca;
+}
+
+a:not([href]):not([class]), a:not([href]):not([class]):hover {
+  color: inherit;
+  text-decoration: none;
 }
 
 /* Pre, code, kbd, samp */
@@ -143,7 +210,7 @@ kbd,
 samp {
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 1em;
-  direction: ltr;
+  direction: ltr ;
   unicode-bidi: bidi-override;
 }
 
@@ -154,11 +221,19 @@ pre {
   overflow: auto;
   font-size: 0.875em;
 }
+pre code {
+  font-size: inherit;
+  color: inherit;
+  word-break: normal;
+}
 
 code {
   font-size: 0.875em;
   color: #d63384;
   word-wrap: break-word;
+}
+a > code {
+  color: inherit;
 }
 
 kbd {
@@ -168,12 +243,18 @@ kbd {
   background-color: #212529;
   border-radius: 0.2rem;
 }
+kbd kbd {
+  padding: 0;
+  font-size: 1em;
+  font-weight: 700;
+}
 
-/* Figure and images */
+/* Figure */
 figure {
   margin: 0 0 1rem;
 }
 
+/* Images and SVGs */
 img,
 svg {
   vertical-align: middle;
@@ -194,10 +275,16 @@ caption {
 
 th {
   text-align: inherit;
+  text-align: -webkit-match-parent;
 }
 
+thead,
+tbody,
+tfoot,
+tr,
 td,
 th {
+  border-color: inherit;
   border-style: solid;
   border-width: 0;
 }
@@ -238,6 +325,9 @@ select {
 select {
   word-wrap: normal;
 }
+select:disabled {
+  opacity: 1;
+}
 
 [list]::-webkit-calendar-picker-indicator {
   display: none;
@@ -249,12 +339,16 @@ button,
 [type=submit] {
   -webkit-appearance: button;
 }
-
 button:not(:disabled),
 [type=button]:not(:disabled),
 [type=reset]:not(:disabled),
 [type=submit]:not(:disabled) {
   cursor: pointer;
+}
+
+::-moz-focus-inner {
+  padding: 0;
+  border-style: none;
 }
 
 textarea {
@@ -276,21 +370,34 @@ legend {
   font-size: calc(1.275rem + 0.3vw);
   line-height: inherit;
 }
-
 @media (min-width: 1200px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-
-  h2 {
-    font-size: 2rem;
-  }
-
-  h4 {
-    font-size: 1.5rem;
-  }
-
   legend {
     font-size: 1.5rem;
   }
 }
+legend + * {
+  clear: right;
+}
+
+/* Webkit-specific styles */
+::-webkit-datetime-edit-fields-wrapper,
+::-webkit-datetime-edit-text,
+::-webkit-datetime-edit-minute,
+::-webkit-datetime-edit-hour-field,
+::-webkit-datetime-edit-day-field,
+::-webkit-datetime-edit-month-field,
+::-webkit-datetime-edit-year-field {
+  padding: 0;
+}
+
+::-webkit-inner-spin-button {
+  height: auto;
+}
+
+[type=search] {
+  outline-offset: -2px;
+  -webkit-appearance: textfield;
+}
+
+[type="tel"],
+[type="url"],
