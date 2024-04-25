@@ -1,49 +1,77 @@
+#status-bar {
+  display: none;
+}
+
+#toolbar {
+  display: none;
+}
+
+#tab-view {
+  display: none;
+}
+
+#container {
+  position: relative;
+  left: 3px;
+  top: 77px;
+  width: 722px;
+  height: 842px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+
+function showStatusBar() {
+  document.getElementById('status-bar').style.display = 'block';
+}
+
+function hideStatusBar() {
+  document.getElementById('status-bar').style.display = 'none';
+}
+
+function showToolbar() {
+  document.getElementById('toolbar').style.display = 'block';
+}
+
+function hideToolbar() {
+  document.getElementById('toolbar').style.display = 'none';
+}
+
+function showTabView() {
+  document.getElementById('tab-view').style.display = 'block';
+}
+
+function hideTabView() {
+  document.getElementById('tab-view').style.display = 'none';
+}
+
+function showContainer() {
+  document.getElementById('container').style.display = 'block';
+}
+
+function hideContainer() {
+  document.getElementById('container').style.display = 'none';
+}
+
+// Call the desired functions to set the initial state
+hideStatusBar();
+hideToolbar();
+hideTabView();
+showContainer();
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Improved Code</title>
-  <style>
-    #status-bar,
-    #toolbar,
-    #tab-view {
-      display: none;
-    }
-
-    #container {
-      position: relative;
-      left: 3px;
-      top: 77px;
-      width: 722px;
-      height: 842px;
-      border: 1px solid rgba(0, 0, 0, 0.3);
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div id="status-bar">ShowStatusBar[]</div>
   <div id="toolbar">ShowToolbar[]</div>
   <div id="tab-view">ShowTabView[]</div>
   <div id="container">Container[]</div>
-  <script>
-    function show(elementId) {
-      document.getElementById(elementId).style.display = 'block';
-    }
-
-    function hide(elementId) {
-      document.getElementById(elementId).style.display = 'none';
-    }
-
-    function init() {
-      hide('status-bar');
-      hide('toolbar');
-      hide('tab-view');
-      show('container');
-    }
-
-    // Call the init function
-    init();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
