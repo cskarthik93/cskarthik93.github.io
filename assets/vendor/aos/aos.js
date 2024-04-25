@@ -15,9 +15,6 @@ const ready = (callback) => {
   }
 };
 
-export default { isSupported, ready };
-
-
 const getOffset = (element, offset) => {
   const rect = element.getBoundingClientRect();
   return rect.top + (window.pageYOffset || document.documentElement.scrollTop) - (document.documentElement.clientTop || 0) + (offset || 0);
@@ -28,23 +25,21 @@ const getScrollTop = () => (window.pageYOffset || document.documentElement.scrol
 const getWindowHeight = () => window.innerHeight || document.documentElement.clientHeight;
 
 export { getOffset, getScrollTop, getWindowHeight };
+export default { isSupported, ready };
 
 
-import { getOffset } from './aos-utils';
+import aos from './aos';
+
+const { getOffset } = aos;
 
 const animateElements = (elements, threshold) => {
-  const scrollTop = getScrollTop();
+  const scrollTop = aos.getScrollTop();
   elements.forEach((element) => {
-    if (getOffset(element, threshold) < scrollTop + getWindowHeight()) {
+    if (getOffset(element, threshold) < scrollTop + aos.getWindowHeight()) {
       element.classList.add('aos-animate');
     }
   });
 };
-
-export default animateElements;
-
-
-import { getOffset } from './aos-utils';
 
 const initElements = (elements, config) => {
   elements.forEach((element) => {
@@ -53,11 +48,14 @@ const initElements = (elements, config) => {
   });
 };
 
-export default initElements;
+export { animateElements, initElements };
 
+
+import aos from './aos';
+import { animateElements, initElements } from './aos-utils';
 
 const getPosition = (element, config) => {
-  const windowHeight = window.innerHeight;
+  const windowHeight = aos.getWindowHeight();
   const offset = config.offset || 0;
   const anchor = document.querySelector(config.anchor);
   let position = 0;
@@ -95,7 +93,7 @@ const getPosition = (element, config) => {
 
   if (anchor) {
     const rect = anchor.getBoundingClientRect();
-    position += (rect.top + window.pageYOffset) - (document.documentElement.clientTop || 0);
+    position += (rect.top + aos.getScrollTop()) - (document.documentElement.clientTop || 0);
   }
 
   return position + offset;
@@ -105,12 +103,11 @@ export default getPosition;
 
 
 import aos from './aos';
-import animateElements from './aos-animate';
-import initElements from './aos-init';
+import { animateElements, initElements } from './aos-utils';
 import getPosition from './aos-position';
 
 const { isSupported, ready } = aos;
-const { getWindowHeight, getOffset, getScrollTop } = aosUtils;
+const { getWindowHeight, getOffset, getScrollTop } = aos;
 
 let elements = [];
 
