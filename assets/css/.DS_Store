@@ -1,7 +1,10 @@
-bud1 = {
+budget_friend1 = {
     "name": "John Doe",
     "age": 30,
     "city": "New York",
 }
 
-print(bud1)
+print("Friend 1 Details:")
+for key, value in budget_friend1.items():
+    print(f"{key}: {value}")
+
